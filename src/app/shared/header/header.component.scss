@@ -1,0 +1,14 @@
+.nav-item {
+  a {
+    font-weight: 600;
+    font-size: large;
+  }
+}
+
+.navbar {
+  background-color: rgb(255, 226, 189);
+}
+
+.dropdown-toggle::after {
+  vertical-align: 0.4em;
+}

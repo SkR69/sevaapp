@@ -1,0 +1,45 @@
+<div class="row">
+    <mat-form-field class="col-2 offset-2">
+        <mat-label>Samvatsara</mat-label>
+        <mat-select [(ngModel)]="samvatsara" (selectionChange)="getPanchangaList()">
+            @for (samvatsara of this.globalService.getSamvatsaraList(); track $index) {
+            <mat-option [value]="samvatsara.value">{{samvatsara.label}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-2 offset-2">
+        <mat-label>Maasa</mat-label>
+        <mat-select [(ngModel)]="maasa" (selectionChange)="getPanchangaList()">
+            @for (maasa of this.globalService.getMaasaList(); track $index) {
+            <mat-option [value]="maasa.value">{{maasa.label}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let row">{{ row.date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="day">
+        <th mat-header-cell *matHeaderCellDef>Day</th>
+        <td mat-cell *matCellDef="let row">{{ row.day }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="paksha">
+        <th mat-header-cell *matHeaderCellDef>Paksha</th>
+        <td mat-cell *matCellDef="let row">{{ row.paksha }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tithi">
+        <th mat-header-cell *matHeaderCellDef>Tithi</th>
+        <td mat-cell *matCellDef="let row">{{ row.tithi }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator class="mt-1" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

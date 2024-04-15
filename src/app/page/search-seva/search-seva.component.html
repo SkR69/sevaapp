@@ -1,0 +1,123 @@
+<!-- <mat-card class="">
+    <mat-card-content class="fw-semibold heading">
+        <h3>Search</h3>
+    </mat-card-content>
+</mat-card> -->
+
+<mat-card class="">
+    <mat-card-header>
+        <mat-card-title class="fw-semibold">
+            <h3>Search Criteria</h3>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form row col-12">
+            <mat-form-field class="col-4">
+                <mat-label>Search For</mat-label>
+                <mat-select>
+                    <mat-option value="sevabookings">Seva Bookings</mat-option>
+                    <mat-option value="two">Second option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-4">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Start date">
+                    <input matEndDate placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <mat-form-field class="col-4">
+                <mat-label>Seva Booking No</mat-label>
+                <input matInput type="text" placeholder="Ex. Pizza" value="Sushi">
+            </mat-form-field>
+            <mat-form-field class="col-3">
+                <mat-label>Seva</mat-label>
+                <mat-select>
+                    <mat-option value="sevabookings">Seva Bookings</mat-option>
+                    <mat-option value="two">Second option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-3">
+                <mat-label>Booking Status</mat-label>
+                <mat-select>
+                    <mat-option value="sevabookings">Seva Bookings</mat-option>
+                    <mat-option value="two">Second option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-3">
+                <mat-label>Seva Status</mat-label>
+                <mat-select>
+                    <mat-option value="sevabookings">Seva Bookings</mat-option>
+                    <mat-option value="two">Second option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="col-3 d-flex justify-content-end mt-2">
+                <button type="submit" mat-flat-button color="primary">Search</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table mt-2">
+    <!-- Position Column -->
+    <ng-container matColumnDef="bkgNo">
+        <th mat-header-cell *matHeaderCellDef>Bkg.No.</th>
+        <td mat-cell *matCellDef="let element">{{element.bkgNo}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="sevaKartha">
+        <th mat-header-cell *matHeaderCellDef>Seva Kartha</th>
+        <td mat-cell *matCellDef="let element">{{element.sevaKartha}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="gothra">
+        <th mat-header-cell *matHeaderCellDef>Gothra</th>
+        <td mat-cell *matCellDef="let element">{{element.gothra}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="nakshathra">
+        <th mat-header-cell *matHeaderCellDef>Nakshathra</th>
+        <td mat-cell *matCellDef="let element">{{element.nakshathra}}</td>
+    </ng-container>
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="seva">
+        <th mat-header-cell *matHeaderCellDef>Seva</th>
+        <td mat-cell *matCellDef="let element">{{element.seva}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="bkgStatus">
+        <th mat-header-cell *matHeaderCellDef>Bkg.Status</th>
+        <td mat-cell *matCellDef="let element">{{element.bkgStatus}}</td>
+    </ng-container>
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="lstatus">
+        <th mat-header-cell *matHeaderCellDef>Line.Status</th>
+        <td mat-cell *matCellDef="let element">{{element.lstatus}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon class="mx-2" fontIcon="visibility" matTooltip="View Seva"></mat-icon>
+            <mat-icon class="mx-2" fontIcon="edit" matTooltip="Edit Seva"></mat-icon>
+            <mat-icon class="mx-2" fontIcon="payments" matTooltip="Receive Payment"></mat-icon>
+            <!-- <mat-icon class="mx-2" fontIcon="receipt_long" matTooltip="View Seva"></mat-icon> -->
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [length]="1000" [pageSize]="30" aria-label="Select page of GitHub search results"
+    class="mt-1"></mat-paginator>

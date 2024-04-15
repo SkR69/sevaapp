@@ -1,0 +1,64 @@
+<mat-card class="">
+    <mat-card-content class="fw-semibold heading">
+        <h3>Today's Seva Bookings</h3>
+    </mat-card-content>
+</mat-card>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table mt-2">
+    <!-- Position Column -->
+    <ng-container matColumnDef="bkgNo">
+        <th mat-header-cell *matHeaderCellDef>Bkg.No.</th>
+        <td mat-cell *matCellDef="let element">{{element.bkgNo}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="sevaKartha">
+        <th mat-header-cell *matHeaderCellDef>Seva Kartha</th>
+        <td mat-cell *matCellDef="let element">{{element.sevaKartha}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="gothra">
+        <th mat-header-cell *matHeaderCellDef>Gothra</th>
+        <td mat-cell *matCellDef="let element">{{element.gothra}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="nakshathra">
+        <th mat-header-cell *matHeaderCellDef>Nakshathra</th>
+        <td mat-cell *matCellDef="let element">{{element.nakshathra}}</td>
+    </ng-container>
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="seva">
+        <th mat-header-cell *matHeaderCellDef>Seva</th>
+        <td mat-cell *matCellDef="let element">{{element.seva}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="bkgStatus">
+        <th mat-header-cell *matHeaderCellDef>Bkg.Status</th>
+        <td mat-cell *matCellDef="let element">{{element.bkgStatus}}</td>
+    </ng-container>
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="lstatus">
+        <th mat-header-cell *matHeaderCellDef>Line.Status</th>
+        <td mat-cell *matCellDef="let element">{{element.lstatus}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon class="mx-2" fontIcon="visibility" matTooltip="View Seva"></mat-icon>
+            <mat-icon class="mx-2" fontIcon="edit" matTooltip="Edit Seva"></mat-icon>
+            <mat-icon class="mx-2" fontIcon="payments" matTooltip="Receive Payment"></mat-icon>
+            <!-- <mat-icon class="mx-2" fontIcon="receipt_long" matTooltip="View Seva"></mat-icon> -->
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

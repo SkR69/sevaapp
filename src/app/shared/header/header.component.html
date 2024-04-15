@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex" routerLink="./" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
+      <img src="../../assets/img/logo.png" alt="Logo" height="45" width="45">
+      <h2 class="fw-semibold fst-italic mb-0 mt-2 heading">Sree Raghavendra Seva Samithi</h2>
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarNav" [ngClass]="{'collapse': isNavbarCollapsed}">
+      <ul class="navbar-nav ms-auto mt-2">
+        <li class="nav-item">
+          <a class="nav-link heading" routerLink="../home" routerLinkActive="activebutton"
+            ariaCurrentWhenActive="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link heading" routerLink="./seva" routerLinkActive="activebutton"
+            ariaCurrentWhenActive="page">Seva</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link heading" routerLink="./search" routerLinkActive="activebutton"
+            ariaCurrentWhenActive="page">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link heading" routerLink="./panchanga" routerLinkActive="activebutton"
+            ariaCurrentWhenActive="page">Panchanga</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link heading" routerLink="./billing" routerLinkActive="activebutton"
+            ariaCurrentWhenActive="page">Billing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link heading" routerLink="./reports" routerLinkActive="activebutton"
+            ariaCurrentWhenActive="page">Reports</a>
+        </li>
+        <li class="nav-item dropdown" dropdown>
+          <a class="nav-link heading dropdown-toggle" id="navbarDropdown" role="button" dropdownToggle>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" *dropdownMenu>
+            <li><a class="dropdown-item heading">{{userName}}</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item" routerLink="./profile" routerLinkActive="activebutton"
+                ariaCurrentWhenActive="page">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" (click)="authService.clearLoginDetails()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,7 @@
+<div class="alertStyle">
+	@for (alert of this.globalService.alerts; track alert) {
+	<alert [type]="alert.type" class="shadow-lg" [dismissOnTimeout]="4000" [dismissible]="true"
+		(onClosed)="this.globalService.onClosed(alert)">{{
+		alert.msg }}</alert>
+	}
+</div>
