@@ -1,0 +1,141 @@
+@if(sevaBookingData){
+<mat-table [dataSource]="sevaDetails">
+    <ng-container matColumnDef="seva">
+        <mat-header-cell *matHeaderCellDef>Seva</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.seva }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.date }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="maasa">
+        <mat-header-cell *matHeaderCellDef>Maasa</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.maasa }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="paksha">
+        <mat-header-cell *matHeaderCellDef>Paksha</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.paksha }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="tithi">
+        <mat-header-cell *matHeaderCellDef>Tithi</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.tithi }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="qty">
+        <mat-header-cell *matHeaderCellDef>Qty</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.qty }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.amount }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.status }}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="sevaDetailsColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: sevaDetailsColumns"></mat-row>
+</mat-table>
+
+
+<div class="row mt-4">
+    @for(item of sevaKarthaDetails | keyvalue:originalOrder; track $index){
+    <div class="">
+        <div class="d-flex justify-content-between">
+            <span class="fw-bold">{{ item.key }}:</span>
+            <span>{{ item.value }}</span>
+        </div>
+    </div>
+    }
+</div>
+
+<!--   <mat-table [dataSource]="[sevaKarthaDetails]">
+        <ng-container matColumnDef="mobileNo">
+          <mat-header-cell *matHeaderCellDef>Mobile No.</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.mobileNo }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.title }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="firstName">
+          <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.firstName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="lastName">
+          <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.lastName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nakshatra">
+          <mat-header-cell *matHeaderCellDef>Nakshatra</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.nakshatra }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="gothra">
+          <mat-header-cell *matHeaderCellDef>Gothra</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.gothra }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="landLine">
+          <mat-header-cell *matHeaderCellDef>Land Line</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.landLine }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.email }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="addressLine1">
+          <mat-header-cell *matHeaderCellDef>Address Line 1</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.addressLine1 }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="addressLine2">
+          <mat-header-cell *matHeaderCellDef>Address Line 2</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.addressLine2 }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="addressLine3">
+          <mat-header-cell *matHeaderCellDef>Address Line 3</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.addressLine3 }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="state">
+          <mat-header-cell *matHeaderCellDef>State</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.state }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="city">
+          <mat-header-cell *matHeaderCellDef>City</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.city }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="pincode">
+          <mat-header-cell *matHeaderCellDef>Pincode</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.pincode }}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="sevaKarthaDetailsColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: sevaKarthaDetailsColumns"></mat-row>
+      </mat-table> -->
+
+
+<mat-table class="mt-2" [dataSource]="receiptDetails">
+    <ng-container matColumnDef="receiptNo">
+        <mat-header-cell *matHeaderCellDef>Receipt No.</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.receiptNo }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="receiptDate">
+        <mat-header-cell *matHeaderCellDef>Receipt Date</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.receiptDate }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mode">
+        <mat-header-cell *matHeaderCellDef>Mode</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.mode }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.amount }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="amountDue">
+        <mat-header-cell *matHeaderCellDef>Amount Due</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.amountDue }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="generatedBy">
+        <mat-header-cell *matHeaderCellDef>Generated By</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.generatedBy }}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="receiptDetailsColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: receiptDetailsColumns"></mat-row>
+</mat-table>
+}

@@ -3,11 +3,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ViewSevaDashboardComponent } from '../../feature/view-seva-dashboard/view-seva-dashboard.component';
 
 @Component({
   selector: 'app-seva',
   standalone: true,
-  imports: [MatTableModule, MatIconModule, MatCardModule, MatTooltipModule],
+  imports: [MatTableModule, MatIconModule, MatCardModule, MatTooltipModule, ViewSevaDashboardComponent],
   templateUrl: './seva.component.html',
   styleUrl: './seva.component.scss'
 })
